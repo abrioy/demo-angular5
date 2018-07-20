@@ -5,7 +5,7 @@
       "name": "Reine",
       "description": "La best pizza",
       "price": 9.5,
-      "image": "/assets/pizza/reine.jpg",
+      "image": "./assets/pizza/reine.jpg",
       "isVegan": false
     },
     {
@@ -13,7 +13,7 @@
       "name": "4 Fromage",
       "description": "La pire pizza",
       "price": 9.9,
-      "image": "/assets/pizza/4fromage.jpg",
+      "image": "./assets/pizza/4fromage.jpg",
       "isVegan": true
     },
     {
@@ -21,7 +21,7 @@
       "name": "Hawaïenne",
       "description": "Avec de l'ananas",
       "price": 11.9,
-      "image": "/assets/pizza/hawaienne.jpg",
+      "image": "./assets/pizza/hawaienne.jpg",
       "isVegan": false
     }
   ]
