@@ -1,0 +1,24 @@
+<form [formGroup]="loginFormGroup">
+  <small>
+    <mat-form-field>
+      <input matInput #username
+             placeholder="Nom d'utilisateur"
+             formControlName="login"
+             [errorStateMatcher]="loginErrorStateMatcher">
+      <mat-error>
+        {{loginErrorStateMatcher.message}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password"
+             placeholder="Mot de passe"
+             formControlName="password"
+             [errorStateMatcher]="loginErrorStateMatcher">
+    </mat-form-field>
+  </small>
+
+  <button mat-raised-button color="accent"
+          (click)="logAs(username.value)">
+    Connection
+  </button>
+</form>

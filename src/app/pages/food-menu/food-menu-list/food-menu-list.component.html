@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>
+    Choisissez une pizza
+  </mat-card-title>
+
+  <ng-container [ngSwitch]="foodItems">
+    <mat-card-content *ngSwitchCase="[]">
+      <mat-card>
+        <mat-card-content>
+          Pas de pizzas aujourd'hui :(
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-content *ngSwitchCase="null">
+      <mat-card>
+        <mat-card-content>
+          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+
+    <mat-card-content *ngSwitchDefault="">
+      <app-food-menu-entry *ngFor="let foodItem of foodItems"
+                           [foodItem]="foodItem">
+      </app-food-menu-entry>
+
+      <app-food-menu-create-form
+        *ngIf="showCreatePizzaForm"
+        (showForm)="showCreatePizzaForm=$event">
+      </app-food-menu-create-form>
+    </mat-card-content>
+    <mat-card-actions *authGuard="'food.create'">
+      <button mat-raised-button color="accent"
+              (click)="showCreatePizzaForm=!showCreatePizzaForm"
+              *ngIf="!showCreatePizzaForm">
+        Créer une pizza
+      </button>
+    </mat-card-actions>
+  </ng-container>
+</mat-card>

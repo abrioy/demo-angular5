@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" [style.background-color]="configService.getBackgroundColor()">
+  <mat-toolbar-row
+    class="top-bar" [style.background-color]="configService.getBackgroundColor()">
+    <a *authGuard="'EVERYONE'"
+       routerLinkActive="active" routerLink="/home">
+      <button mat-button>Accueil</button>
+    </a>
+    <a *authGuard="'EVERYONE'"
+       routerLinkActive="active" routerLink="/menu">
+      <button mat-button>Menu</button>
+    </a>
+    <a *authGuard="'EVERYONE'"
+       routerLinkActive="active" routerLink="/contact">
+      <button mat-button>Contact</button>
+    </a>
+    <div class="spacer"></div>
+    <a *authGuard="'menu.settings'"
+       routerLinkActive="active" routerLink="/settings">
+      <button mat-button>Réglages</button>
+    </a>
+    <a *authGuard="'UNAUTHENTICATED'"
+       [class]="((showLoginBar)?'active':'')" (click)="showLoginBar=!showLoginBar">
+      <button mat-button>Se Connecter</button>
+    </a>
+    <a *authGuard="'UNAUTHENTICATED'"
+       routerLinkActive="active" routerLink="/register">
+      <button mat-button>Inscription</button>
+    </a>
+    <a *authGuard="'AUTHENTICATED'"
+       routerLinkActive="active" routerLink="/logout">
+      <button mat-button>Déconnexion</button>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row *authGuard="'UNAUTHENTICATED'"
+                   class="login-bar" [@loginBarAnimation]="getLoginBarState()">
+    <app-menu-bar-login>
+    </app-menu-bar-login>
+  </mat-toolbar-row>
+</mat-toolbar>
+

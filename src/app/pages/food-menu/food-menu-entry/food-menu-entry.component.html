@@ -1,0 +1,17 @@
+<a [routerLink]="['/menu',foodItem.id]">
+  <mat-card>
+    <mat-card-header>
+      <button mat-mini-fab mat-raised-button class="delete-button" color="warn"
+              *authGuard="'food.delete'" (click)="deleteFoodItem($event)" routerLink="/menu">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <mat-card-title class="mat-subheading-1">
+        <span class="icon icon-vegan" *ngIf="foodItem.isVegan"></span>
+        {{foodItem.name}}
+      </mat-card-title>
+      <mat-card-subtitle><span class="price">{{foodItem.getPrice()}}</span>{{foodItem.description}}</mat-card-subtitle>
+      <img mat-card-avatar [src]="foodItem.image"/>
+    </mat-card-header>
+  </mat-card>
+</a>

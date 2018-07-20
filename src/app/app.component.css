@@ -1,0 +1,10 @@
+main {
+  flex: 1;
+  overflow: auto;
+}
+
+
+::ng-deep a {
+  color: inherit;
+  text-decoration: inherit;
+}

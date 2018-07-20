@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" [style.background-color]="configService.getBackgroundColor()">
+  <mat-toolbar-row>
+    <small *ngIf="currentUserName">
+      Connecté en tant que <b>{{currentUserName}}</b>
+    </small>
+    <small class="pull-right">
+      Pour la formation Angular
+    </small>
+  </mat-toolbar-row>
+</mat-toolbar>

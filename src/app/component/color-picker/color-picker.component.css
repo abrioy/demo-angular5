@@ -1,0 +1,26 @@
+mat-input-container {
+  width: 4em;
+}
+
+
+.red ::ng-deep .mat-slider-thumb-label,
+.red ::ng-deep .mat-slider-focus-ring,
+.red ::ng-deep .mat-slider-track-fill,
+.red ::ng-deep .mat-slider-thumb{
+  background-color: #cc0000 !important;
+}
+
+.green ::ng-deep .mat-slider-thumb-label,
+.green ::ng-deep .mat-slider-focus-ring,
+.green ::ng-deep .mat-slider-track-fill,
+.green ::ng-deep .mat-slider-thumb{
+  background-color: #00aa00 !important;
+}
+
+.blue ::ng-deep .mat-slider-thumb-label,
+.blue ::ng-deep .mat-slider-focus-ring,
+.blue ::ng-deep .mat-slider-track-fill,
+.blue ::ng-deep .mat-slider-thumb{
+  background-color: #0000ff !important;
+}
+

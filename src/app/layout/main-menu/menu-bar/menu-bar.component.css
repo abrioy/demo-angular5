@@ -1,0 +1,24 @@
+.top-bar {
+  display: flex;
+  z-index: 2;
+}
+.top-bar .spacer {
+  flex: 1;
+}
+.top-bar .active {
+  color: aqua;
+}
+
+
+.login-bar app-menu-bar-login {
+  margin-left: auto;
+  margin-top: -10px;
+}
+
+
+button {
+  font-weight: bold;
+}
+
+
+

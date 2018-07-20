@@ -1,0 +1,29 @@
+.price{
+  margin-right: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.delete-button {
+  margin-left: auto;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 5px;
+  display: inline-block;
+  background-size: 20px;
+}
+.icon-vegan {
+  background-image: url("/assets/vegan.png");
+}
+
+mat-card-subtitle {
+  white-space: pre-line;
+}
+
+mat-card:hover {
+  background-color: #ddffff;
+}

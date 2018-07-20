@@ -1,0 +1,87 @@
+<mat-card>
+  <mat-card-title>
+    {{title}}
+  </mat-card-title>
+
+  <mat-card-content *ngIf="!currentColor">
+    <mat-card>
+      <mat-card-content>
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+
+  <mat-card-content *ngIf="currentColor">
+    <mat-card>
+      <mat-card-content>
+        <section>
+          <mat-input-container>
+            <input matInput type="number"
+                   min="0" max="255"
+                   placeholder="Rouge"
+                   [(ngModel)]="currentColor.red">
+          </mat-input-container>
+          <mat-slider
+            class="red"
+            [disabled]="sliderDisabled"
+            [max]="sliderMax"
+            [min]="sliderMin"
+            [step]="sliderStep"
+            [thumbLabel]="sliderThumbLabel"
+            [tickInterval]="sliderTickInterval"
+            [(ngModel)]="currentColor.red">
+          </mat-slider>
+        </section>
+        <section>
+          <mat-input-container>
+            <input matInput type="number"
+                   min="0" max="255"
+                   placeholder="Vert"
+                   [(ngModel)]="currentColor.green">
+          </mat-input-container>
+          <mat-slider
+            class="green"
+            [disabled]="sliderDisabled"
+            [max]="sliderMax"
+            [min]="sliderMin"
+            [step]="sliderStep"
+            [thumbLabel]="sliderThumbLabel"
+            [tickInterval]="sliderTickInterval"
+            [(ngModel)]="currentColor.green">
+          </mat-slider>
+        </section>
+        <section>
+          <mat-input-container>
+            <input matInput type="number"
+                   min="0" max="255"
+                   placeholder="Bleu"
+                   [(ngModel)]="currentColor.blue">
+          </mat-input-container>
+          <mat-slider
+            class="blue"
+            [disabled]="sliderDisabled"
+            [max]="sliderMax"
+            [min]="sliderMin"
+            [step]="sliderStep"
+            [thumbLabel]="sliderThumbLabel"
+            [tickInterval]="sliderTickInterval"
+            [(ngModel)]="currentColor.blue">
+          </mat-slider>
+        </section>
+        <section>
+          <mat-input-container>
+            <input matInput
+                   [ngModel]="currentColor.toHex()"
+                   (ngModelChange)="currentColor.fromHex($event)">
+          </mat-input-container>
+          <div style="width: 20px; height: 20px;" [style.background-color]="currentColor.toHex()"></div>
+        </section>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="saveColor()">SAVE</button>
+        <button mat-raised-button color="warn" (click)="resetColor()">RESET</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
+

@@ -1,0 +1,65 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title id="form-title">Créer une Pizza</mat-card-title>
+    <button mat-mini-fab mat-raised-button class="close-button" color="warn"
+            (click)="hideForm()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+
+    <mat-card>
+      <form [formGroup]="foodItemForm">
+        <mat-card-header id="food-item-create-form">
+          <mat-card-title class="mat-subheading-1">
+            <mat-slide-toggle color="accent"
+                              id="vegan" formControlName="isVegan">
+              Végé
+            </mat-slide-toggle>
+            <mat-form-field id="name">
+              <input matInput formControlName="name" required
+                     placeholder="Nom de la pizza">
+              <mat-error>
+                La taille du nom de la pizza doit être comprise entre 1 et 127 caractères
+              </mat-error>
+            </mat-form-field>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <mat-form-field id="price">
+              <input matInput type="number" formControlName="price" required
+                     placeholder="Prix">
+              <mat-error>
+                Le prix de la pizza doit être supérieur à 0€
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field id="description">
+              <textarea matInput formControlName="description" required
+                        matTextareaAutosize
+                        placeholder="Description"></textarea>
+              <mat-error>
+                La description est obligatoire
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field id="image">
+              <input matInput formControlName="image" required
+                      placeholder="Url de l'image">
+              <mat-error>
+                L'image est obligatoire
+              </mat-error>
+            </mat-form-field>
+          </mat-card-subtitle>
+          <img mat-card-avatar
+               [src]="foodItemForm.get('image').value"/>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" [disabled]="foodItemForm.invalid" (click)="submit()">
+            Ajouter
+          </button>
+          <button mat-raised-button color="primary" (click)="hideForm()">
+            Annuler
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
